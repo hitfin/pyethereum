@@ -286,6 +286,8 @@ class Chain(object):
                   if the transaction was invalid
         """
         assert self.head_candidate is not None
+        if self.head_candidate.number < 40000:
+            return
         head_candidate = self.head_candidate
         log.debug('add tx', num_txs=self.num_transactions(), tx=transaction, on=head_candidate)
         if self.head_candidate.includes_transaction(transaction.hash):

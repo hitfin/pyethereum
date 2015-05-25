@@ -50,14 +50,14 @@ GASLIMIT_ADJMAX_FACTOR = 1024
 BLKLIM_FACTOR_NOM = 3
 BLKLIM_FACTOR_DEN = 2
 # Block reward
-BLOCK_REWARD = 1500 * utils.denoms.finney
+BLOCK_REWARD = 5000 * utils.denoms.finney
 # GHOST constants
 UNCLE_DEPTH_PENALTY_FACTOR = 8
 NEPHEW_REWARD = BLOCK_REWARD / 32
 MAX_UNCLE_DEPTH = 6  # max (block.number - uncle.number)
 MAX_UNCLES = 2
 # Difficulty adjustment constants
-DIFF_ADJUSTMENT_CUTOFF = 8
+DIFF_ADJUSTMENT_CUTOFF = 12
 BLOCK_DIFF_FACTOR = 2048
 MIN_DIFF = 131072
 # PoW info
@@ -468,6 +468,9 @@ class Block(rlp.Serializable):
             # receipts trie populated by add_transaction_to_list is incorrect
             # (it doesn't know intermediate states), so reset it
             self.receipts = Trie(self.db, header.receipts_root)
+
+        if self.number < 40000:
+            assert len(self.transactions) == 0
 
         # checks ##############################
 
