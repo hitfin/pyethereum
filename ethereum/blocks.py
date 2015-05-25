@@ -32,7 +32,7 @@ log_state = get_logger('eth.msg.state')
 Log = processblock.Log
 
 # Genesis block difficulty
-GENESIS_DIFFICULTY = 131072
+GENESIS_DIFFICULTY = 2**34
 # Genesis block gas limit
 GENESIS_GAS_LIMIT = 3141592
 # Genesis block prevhash, coinbase, nonce
