@@ -1,14 +1,7 @@
-rlp==0.2.2
 bitcoin
-bottle
-docopt
-ethereum-serpent
-leveldb
-miniupnpc
 pysha3
-pytest
-pytest-timeout
+PyYAML
 repoze.lru
-requests
-waitress
 structlog>=15.0.0
+https://github.com/ethereum/pyrlp/tarball/develop
+https://github.com/ethereum/ethash/tarball/master
