@@ -22,6 +22,8 @@ class ContractTranslator():
         for sig_item in full_signature:
             encode_types = [f['type'] for f in sig_item['inputs']]
             signature = [(f['type'], f['name']) for f in sig_item['inputs']]
+            if 'name' not in sig_item:
+                continue
             name = sig_item['name']
             if '(' in name:
                 name = name[:name.find('(')]
